@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 const swaggerJsdoc = require('swagger-jsdoc')
 const openapiSpecification = swaggerJsdoc(swaggerDocument)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification, { explorer: true }))
-app.use('/api/files', filesRouter)
+app.use('/files', filesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
