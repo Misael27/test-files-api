@@ -45,7 +45,7 @@ function buildJsonResult(fileName, fileHeader, fileLines) {
     for(let i=1; i<fileLines.length; i++) {
         const fileLine = fileLines[i].split(",");
         if (fileHeader.length != fileLine.length || isNaN(fileLine[2].trim()) || fileLine[3].trim().length != 32) continue;
-        lines.push(new Line(fileLine[1], fileLine[2], fileLine[3]));
+        lines.push(new Line(fileLine[1], parseFloat(fileLine[2]), fileLine[3]));
     }
     return new File(fileName, lines);
 }
