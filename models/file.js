@@ -6,21 +6,20 @@
  *    schemas:
  *      File:
  *        type: object
- *        required:
- *          - name
  *        properties:
- *          name:
+ *          file:
  *            type: string
- *          description:
- *            type: string
+ *          lines:
+ *            type:
+ *              $ref: '#/components/schemas/Line'
  *        example:
- *           name: string
- *           description: string
+ *           name: "file1.csv"
+ *           lines: []
  */
 class File {
-  constructor(name, description) {
-    this.name = name;
-    this.description = description;
+  constructor(file, lines) {
+    this.file = file;
+    this.lines = lines;
   }
 }
 

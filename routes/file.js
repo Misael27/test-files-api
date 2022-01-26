@@ -36,16 +36,34 @@ module.exports = router;
  * @swagger
  *  components:
  *    schemas:
- *      File:
+ *      Line:
  *        type: object
- *        required:
- *          - name
  *        properties:
- *          name:
+ *          text:
  *            type: string
- *          description:
+ *          number:
+ *            type: integer
+ *          hex:
  *            type: string
  *        example:
- *           name: string
- *           description: string
+ *           text: "RgTya"
+ *           number: 64075909
+ *           hex: "70ad29aacf0b690b0467fe2b2767f765"
+ */
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      File:
+ *        type: object
+ *        properties:
+ *          file:
+ *            type: string
+ *          lines:
+ *            type:
+ *              $ref: '#/components/schemas/Line'
+ *        example:
+ *           name: "file1.csv"
+ *           lines: []
  */

@@ -1,12 +1,13 @@
 const axios = require('axios');
 const dotenv = require('dotenv');
 
-function apiConfig() {
+function apiConfig(config) {
+    if (!config) config = {};
     dotenv.config();
     const defaultOptions = {
         baseURL: process.env.TBXNET_URL,
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type":  config.contentType ? config.contentType :"application/json" ,
             "Authorization" : "Bearer aSuperSecretKey"
         }
     };
@@ -14,9 +15,16 @@ function apiConfig() {
 }
 
 exports.getFiles = function() {
-    console.log("llamando api");
     return apiConfig().get(`/secret/files`)
     .then((response) => {
         return response.data;
     });
 }
+
+exports.getFileCsv = function(fileName) {
+    return apiConfig({contentType:"text/csv"}).get(`/secret/file/${fileName}`)
+    .then((response) => {
+        return response.data;
+    });
+}
+
