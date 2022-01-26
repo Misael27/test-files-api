@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 /**
  * @swagger
@@ -17,12 +17,10 @@
  *           lines: []
  */
 class File {
-  constructor(file, lines) {
-    this.file = file;
-    this.lines = lines;
+  constructor (file, lines) {
+    this.file = file
+    this.lines = lines
   }
 }
 
-module.exports = File;
-
-
+module.exports = File

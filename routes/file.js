@@ -1,8 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var  fileService = require('../services/file');
+var express = require('express')
+var router = express.Router()
+var fileService = require('../services/file')
 // App Modules
-
 
 /**
  * @swagger
@@ -13,11 +12,37 @@ var  fileService = require('../services/file');
 
 /**
  * @swagger
- * /files:
+ * /files/data:
  *   get:
- *     summary: Returns monitoring data.
+ *     summary: Returns format files.
  *     tags: [Files]
- *     description: Retrieve a list of files.
+ *     description: list of files.
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - in: query
+ *         name: fileName
+ *         schema:
+ *         type: string
+ *         required: false
+ *         description: name of specific file
+ *     responses:
+ *       '200':
+ *         description: Operation was successful.
+ *         schema:
+ *           $ref: '#/components/schemas/File'
+ *       '500':
+ *         description: Server error
+*/
+router.get('/data', fileService.getData)
+
+/**
+ * @swagger
+ * /files/list:
+ *   get:
+ *     summary: list of file names
+ *     tags: [Files]
+ *     description: list of file names
  *     produces:
  *       - application/json
  *     responses:
@@ -28,9 +53,9 @@ var  fileService = require('../services/file');
  *       '500':
  *         description: Server error
 */
-router.get("/", fileService.findAll);
+router.get('/list', fileService.getList)
 
-module.exports = router;
+module.exports = router
 
 /**
  * @swagger

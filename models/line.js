@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 /**
  * @swagger
@@ -19,11 +19,11 @@
  *           hex: "70ad29aacf0b690b0467fe2b2767f765"
  */
 class Line {
-  constructor(text, number, hex) {
-    this.text = text;
-    this.number = number;
-    this.hex = hex;
+  constructor (text, number, hex) {
+    this.text = text
+    this.number = number
+    this.hex = hex
   }
 }
 
-module.exports = Line;
+module.exports = Line
