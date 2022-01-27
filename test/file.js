@@ -14,7 +14,7 @@ describe('Files', () => {
     beforeEach((done) => { //Before each test
         done();
     });
-    // Test the /GET /api/files/list
+    // Test the /GET /files/list
     describe('/GET list file names', () => {
         it('it should GET all the file names', (done) => {
         chai.request(server)
@@ -27,7 +27,7 @@ describe('Files', () => {
         });
     });
 
-    // Test the /GET /api/files/list
+    // Test the /GET /files/list
     describe('/GET list file names', () => {
         it('it should GET all the file names', (done) => {
         chai.request(server)
